@@ -7,6 +7,7 @@ var $resetButton = $('#reset')
 var $shareLink = $('#shareLink')
 var $buzzes = $('#buzzes')
 var $roomCount = $('#roomCount')
+var $flashround = $('#flashround')
 var data = { room: null }
 
 $('body').addClass('body--admin')
@@ -44,6 +45,14 @@ $resetButton.on('click', function() {
   `)
   data.leaderboard = leaderboard
   socket.emit('score', data)
+})
+
+$flashround.on('click', function(){
+  for(var i = 120; i > 0; i--){
+    setTimeout(function(){
+      document.getElementById("timer").innerHTML("i")
+    },3000)
+  }
 })
 
 socket.on('create', function(success) {
